@@ -38,7 +38,7 @@ with st.echo(code_location='below'):
     xs = range(len(data_names))
     ax = plt.axes()
     ax.xaxis.grid(True, zorder=1)
-    st.write(f"## You can see here Top15 Films and their IMDB Score ")
+    st.write(f"## You can see here Top10 Films and their IMDB Score ")
     plt.title('Топ-10 фильмов и их рейтинг')
 
     bar = plt.figure(dpi=dpi, figsize=(512 / dpi, 384 / dpi))
@@ -104,8 +104,8 @@ with st.echo(code_location='below'):
         soup = BeautifulSoup(r.text, features="html.parser")
         a = [a.get('src') for a in soup.find_all("img") if a.get('src')]
         a=a[13]
-        st.write("https:film.ru" + a)
-        st.image("https:film.ru" + a,
+        st.write("https//:film.ru" + a)
+        st.image("https://film.ru" + a,
                  width=200,
                  )
     else:
