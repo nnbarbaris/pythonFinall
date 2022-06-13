@@ -101,7 +101,7 @@ with st.echo(code_location='below'):
         st.write("Обложки данного фильма не было в том источнике, где брались первые две обложки,"
                  " поэтому если возникла ошибка, попробуйте перезагрузить или воспользуйтесь ссылкой на картинку")
         r = requests.get("https://www.film.ru/movies/ferri")
-        soup = BeautifulSoup(r.text)
+        soup = BeautifulSoup(r.text, features="html.parser")
         a = [a.get('src') for a in soup.find_all("img") if a.get('src')]
         a=a[13]
         st.write("https:film.ru" + a)
@@ -114,7 +114,7 @@ with st.echo(code_location='below'):
         def mkurl(name):
             return entrypoint + name
         r = requests.get(mkurl(proj))
-        soup = BeautifulSoup(r.text)
+        soup = BeautifulSoup(r.text, features="html.parser")
         a = [a.get('src') for a in soup.find_all("img") if a.get('src')]
         im = a[0]
         st.image( "https:" + im,
