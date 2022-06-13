@@ -40,12 +40,12 @@ with st.echo(code_location='below'):
     ax.xaxis.grid(True, zorder=1)
     st.write(f"## You can see here Top15 Films and their IMDB Score ")
     plt.title('Топ-15 фильмов и их рейтинг')
-    ### FROM: https://eax.me/python-matplotlib/
+    
     bar = plt.figure(dpi=dpi, figsize=(512 / dpi, 384 / dpi))
     plt.bar([x + 0.05 for x in xs], [d * 0.9 for d in data_values],
             width=0.5, color='yellow', alpha=0.9,
             zorder=5)
-    ###END FROM
+
     plt.xlabel('Title')
     plt.ylabel('Score')
     plt.xticks(xs, data_names)
