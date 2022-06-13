@@ -39,8 +39,8 @@ with st.echo(code_location='below'):
     ax = plt.axes()
     ax.xaxis.grid(True, zorder=1)
     st.write(f"## You can see here Top15 Films and their IMDB Score ")
-    plt.title('Топ-15 фильмов и их рейтинг')
-    
+    plt.title('Топ-10 фильмов и их рейтинг')
+
     bar = plt.figure(dpi=dpi, figsize=(512 / dpi, 384 / dpi))
     plt.bar([x + 0.05 for x in xs], [d * 0.9 for d in data_values],
             width=0.5, color='yellow', alpha=0.9,
@@ -100,12 +100,11 @@ with st.echo(code_location='below'):
     if proj== "Ferry":
         st.write("Обложки данного фильма не было в том источнике, где брались первые две обложки,"
                  " поэтому если возникла ошибка, попробуйте перезагрузить или воспользуйтесь ссылкой на картинку")
-        r = requests.get("https://www.film.ru/movies/ferri")
+        r = requests.get("https://kino.mail.ru/cinema/movies/930601_ferri/")
         soup = BeautifulSoup(r.text, features="html.parser")
         a = [a.get('src') for a in soup.find_all("img") if a.get('src')]
-        a=a[13]
-        st.write("https:film.ru" + a)
-        st.image("https:film.ru" + a,
+        a=a[4]
+        st.image( a,
                  width=200,
                  )
     else:
