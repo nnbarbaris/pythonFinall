@@ -101,7 +101,7 @@ with st.echo(code_location='below'):
         st.write("Обложки данного фильма не было в том источнике, где брались первые две обложки,"
                  " поэтому если возникла ошибка, попробуйте перезагрузить или воспользуйтесь ссылкой на картинку")
         r = requests.get("https://kino.mail.ru/cinema/movies/930601_ferri/")
-        soup = BeautifulSoup(r.text)
+        soup = BeautifulSoup(r.text, features="html.parser")
         a = [a.get('src') for a in soup.find_all("img") if a.get('src')]
         st.write(a)
         im=a[4]
