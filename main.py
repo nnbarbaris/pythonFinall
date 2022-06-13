@@ -98,12 +98,12 @@ with st.echo(code_location='below'):
     # BEAUTIFUL SOUP+ REST API
     entrypoint = "https://en.wikipedia.org/wiki/"
     if proj== "Ferry":
-        
+
         r = requests.get("https://www.film.ru/movies/ferri")
         soup = BeautifulSoup(r.text, features="html.parser")
         a = [a.get('src') for a in soup.find_all("img") if a.get('src')]
         a=a[13]
-        st.write("https//:film.ru" + a)
+        #st.write("https//:film.ru" + a)
         st.image("https://film.ru" + a,
                  width=200,
                  )
