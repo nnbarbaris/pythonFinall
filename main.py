@@ -98,13 +98,13 @@ with st.echo(code_location='below'):
     # BEAUTIFUL SOUP+ REST API
     entrypoint = "https://en.wikipedia.org/wiki/"
     if proj== "Ferry":
-        st.write("Обложки данного фильма не было в том источнике, где брались обложки для первых двух,"
-                 " поэтому если возникла ошибка, попробуйте открыть обложку еще раз")
+        st.write("Обложки данного фильма не было в том источнике, где брались первые две обложки,"
+                 " поэтому если возникла ошибка, попробуйте перезагрузить или воспользуйтесь ссылкой на картинку")
         r = requests.get("https://www.film.ru/movies/ferri")
         soup = BeautifulSoup(r.text)
         a = [a.get('src') for a in soup.find_all("img") if a.get('src')]
         a=a[13]
-
+        st.write("https:film.ru" + a)
         st.image("https:film.ru" + a,
                  width=200,
                  )
