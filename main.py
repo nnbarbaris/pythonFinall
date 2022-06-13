@@ -103,6 +103,7 @@ with st.echo(code_location='below'):
         r = requests.get("https://kino.mail.ru/cinema/movies/930601_ferri/")
         soup = BeautifulSoup(r.text)
         a = [a.get('src') for a in soup.find_all("img") if a.get('src')]
+        st.write(a)
         im=a[4]
         st.image(im,
                  width=200,
